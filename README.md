@@ -1,6 +1,6 @@
 # Contao Newsnavigation Bundle
 
-A bundle to provide a simple navigation between news articles. It add template variables got go from one news article to the next or the previous article. News article order is calculated by time property.
+A [contao](https://contao.org/de/) bundle to provide a simple navigation between news articles. It add template variables got go from one news article to the next or the previous article. News article order is calculated by time property.
 
 ## Requirements
 
@@ -35,8 +35,8 @@ This extension adds following template tags to the news template model, which yo
 
 name                 | description
 ---------------------|------------
-nextArticle          | Next article id
-previousArticle      | Previous article id 
+nextArticle          | Next (newer) article id
+previousArticle      | Previous (older) article id 
 nextArticleLabel     | Next article label ("Next article")
 previousArticleLabel | Previous article label ("Previous article")
 

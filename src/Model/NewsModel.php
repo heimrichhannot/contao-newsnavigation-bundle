@@ -21,7 +21,7 @@ class NewsModel extends \Contao\NewsModel
     protected static $strTable = 'tl_news';
 
     /**
-     * Return the next article
+     * Return the next (newer) article
      *
      * @param $time
      * @param array $columns
@@ -45,7 +45,7 @@ class NewsModel extends \Contao\NewsModel
     }
 
     /**
-     * Return the next article
+     * Return the previous (older) article
      *
      * @param $time
      * @param array $columns
