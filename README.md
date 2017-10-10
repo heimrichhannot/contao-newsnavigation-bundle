@@ -18,6 +18,15 @@ composer require heimrichhannot/contao-newsnavigation-bundle
 
 To use this extension, you need to output the template variables in your custom news template.
 
+Example:
+```
+<?php if ($this->previousArticle): ?>
+    <a href="{{news_url::<?= $this->previousArticle ?>}}" class="previous">
+        <?= $this->previousArticleLabel ?>
+    </a>
+<?php endif; ?>
+```
+
 ## Developers
 
 ### Template variables
@@ -30,13 +39,4 @@ nextArticle          | Next article id
 previousArticle      | Previous article id 
 nextArticleLabel     | Next article label ("Next article")
 previousArticleLabel | Previous article label ("Previous article")
-
-Usage example:
-```
-<?php if ($this->previousArticle): ?>
-    <a href="{{news_url::<?= $this->previousArticle ?>}}" class="previous">
-        <?= $this->previousArticleLabel ?>
-    </a>
-<?php endif; ?>
-```
 
