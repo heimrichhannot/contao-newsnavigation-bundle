@@ -1,0 +1,43 @@
+{
+    "name": "heimrichhannot/contao-newsnavigation-bundle",
+    "description":"A bundle to provide a navigation between news articles",
+    "keywords":["contao", "bundle"],
+    "type": "contao-bundle",
+    "homepage":"https://github.com/heimrichhannot/contao-newsnavigation-bundle",
+    "license":"LGPL-3.0+",
+    "authors":[
+        {
+            "name":"Heimrich & Hannot",
+            "email":"digitales@heimrich-hannot.de",
+            "homepage":"http://www.heimrich-hannot.de",
+            "role":"Developer"
+        }
+    ],
+    "support":{
+        "issues":"https://github.com/heimrichhannot/contao-newsnavigation-bundle/issues"
+    },
+    "require": {
+        "php": "^7.0",
+        "contao/core-bundle": "^4.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "HeimrichHannot\\NewsNavigationBundle\\": "src/"
+        },
+        "classmap": [
+            "src/Resources/contao/"
+        ],
+        "exclude-from-classmap": [
+            "src/Resources/contao/config/",
+            "src/Resources/contao/dca/",
+            "src/Resources/contao/languages/",
+            "src/Resources/contao/templates/"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "contao-manager-plugin": "HeimrichHannot\\NewsNavigationBundle\\ContaoManager\\Plugin"
+    }
+}
