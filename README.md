@@ -1,5 +1,7 @@
 # Contao Newsnavigation Bundle
 
+[![Latest Stable Version](https://poser.pugx.org/heimrichhannot/contao-newsnavigation-bundle/v/stable)](https://packagist.org/packages/heimrichhannot/contao-newsnavigation-bundle)
+
 A [contao](https://contao.org/de/) bundle to provide a simple navigation between news articles. It add template variables got go from one news article to the next or the previous article. News article order is calculated by time property.
 
 ## Requirements
