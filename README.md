@@ -42,3 +42,4 @@ previousArticle      | Previous (older) article id
 nextArticleLabel     | Next article label ("Next article")
 previousArticleLabel | Previous article label ("Previous article")
 
+If you want the news title instead the next/previous article label, see [#1](https://github.com/heimrichhannot/contao-newsnavigation-bundle/issues/1) how to do this.
