@@ -20,3 +20,5 @@ $fields = [
         'sql'       => "char(1) NOT NULL default ''"
     ],
 ];
+
+$dca['fields'] = array_merge($dca['fields'], $fields);
