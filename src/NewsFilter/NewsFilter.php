@@ -1,11 +1,9 @@
 <?php
-/**
- * Contao Open Source CMS
- *
+
+/*
  * Copyright (c) 2017 Heimrich & Hannot GmbH
  *
- * @author  Thomas Körner <t.koerner@heimrich-hannot.de>
- * @license http://www.gnu.org/licences/lgpl-3.0.html LGPL
+ * @license LGPL-3.0+
  */
 
 namespace HeimrichHannot\NewsNavigationBundle\NewsFilter;
@@ -31,83 +29,83 @@ class NewsFilter
     }
 
     /**
-     * Filter only published articles
+     * Filter only published articles.
      *
      * @return $this
      */
     public function filterOnlyPublished()
     {
         $t = $this->table;
-        if (isset($this->options['ignoreFePreview']) || !BE_USER_LOGGED_IN)
-        {
-            $time            = \Date::floorToMinute();
+        if (isset($this->options['ignoreFePreview']) || !BE_USER_LOGGED_IN) {
+            $time = \Date::floorToMinute();
             $this->columns[] = "($t.start = '' OR $t.start <= ?)";
-            $this->values[]  = $time;
+            $this->values[] = $time;
             $this->columns[] = "($t.stop = '' OR $t.stop > ?)";
-            $this->values[]  = $time + 60;
+            $this->values[] = $time + 60;
             $this->columns[] = "$t.published = ?";
-            $this->values[]  = 1;
+            $this->values[] = 1;
         }
 
         return $this;
     }
 
     /**
-     * Filter by a single archive
+     * Filter by a single archive.
      *
-     * @param integer $pid
+     * @param int $pid
+     *
      * @return $this
      */
     public function filterByArchive($pid)
     {
         $t = $this->table;
-        if ($pid && is_numeric($pid))
-        {
-            $this->columns[] = "pid = ?";
-            $this->values[]  = $pid;
+        if ($pid && is_numeric($pid)) {
+            $this->columns[] = 'pid = ?';
+            $this->values[] = $pid;
         }
+
         return $this;
     }
 
     /**
-     * Set the filter direction to only older articles
+     * Set the filter direction to only older articles.
      *
      * @param int $time Timestamp
+     *
      * @return $this
      */
     public function filterOnlyOlderArticles($time)
     {
-        $t         = $this->table;
+        $t = $this->table;
         $columns[] = "$t.time < ?";
-        $values[]  = $time;
-        if (!$this->options['order'])
-        {
+        $values[] = $time;
+        if (!$this->options['order']) {
             $this->options['order'] = "$t.time DESC";
-        } else
-        {
+        } else {
             $this->options['order'] .= ", $t.time DESC";
         }
+
         return $this;
     }
 
     /**
-     * Set the filter article to only news articles
+     * Set the filter article to only news articles.
      *
      * @param int $time Timestamp
+     *
      * @return $this
      */
     public function filterOnlyNewerArticles($time)
     {
-        $t         = $this->table;
+        $t = $this->table;
         $columns[] = "$t.time > ?";
-        $values[]  = $time;
-        if (!$this->options['order'])
-        {
+        $values[] = $time;
+        if (!$this->options['order']) {
             $this->options['order'] = "$t.time ASC";
-        } else
-        {
+        } else {
             $this->options['order'] .= ", $t.time ASC";
         }
+
         return $this;
     }
 
@@ -121,24 +119,28 @@ class NewsFilter
 
     /**
      * @param NewsModel $model
+     *
      * @return $this
      */
     public function setModel(NewsModel $model)
     {
         $this->model = $model;
         $this->table = $this->model->getTable();
+
         return $this;
     }
 
     /**
      * @param string $column
      * @param string $value
+     *
      * @return $this
      */
     public function addFilter(string $column, string $value)
     {
         $this->columns[] = $column;
-        $this->values[]  = $value;
+        $this->values[] = $value;
+
         return $this;
     }
 
@@ -147,18 +149,18 @@ class NewsFilter
      *
      * @param string $key
      * @param string $value
-     * @param bool $forceOverwrite If true, option will be overwritten, if already exist.
+     * @param bool   $forceOverwrite if true, option will be overwritten, if already exist
+     *
      * @return $this
      */
     public function setOption(string $key, string $value, bool $forceOverwrite = false)
     {
-        if (!$this->options[$key] || $forceOverwrite === true)
-        {
+        if (!$this->options[$key] || true === $forceOverwrite) {
             $this->options[$key] = $value;
-        } else
-        {
+        } else {
             $this->options[$key] .= ", $value";
         }
+
         return $this;
     }
 
@@ -221,17 +223,17 @@ class NewsFilter
     }
 
     /**
-     * Returns a copy of this object
+     * Returns a copy of this object.
      *
      * @return NewsFilter
      */
     public function createCopy()
     {
-        $filter = new NewsFilter();
+        $filter = new self();
         $filter->setColumns($this->getColumns());
         $filter->setValues($this->getValues());
         $filter->setOptions($this->getOptions());
+
         return $filter;
     }
-
 }
