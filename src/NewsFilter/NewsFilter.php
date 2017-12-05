@@ -77,8 +77,8 @@ class NewsFilter
     public function filterOnlyOlderArticles($time)
     {
         $t = $this->table;
-        $columns[] = "$t.time < ?";
-        $values[] = $time;
+        $this->columns[] = "$t.time < ?";
+        $this->values[] = $time;
         if (!$this->options['order']) {
             $this->options['order'] = "$t.time DESC";
         } else {
@@ -98,8 +98,8 @@ class NewsFilter
     public function filterOnlyNewerArticles($time)
     {
         $t = $this->table;
-        $columns[] = "$t.time > ?";
-        $values[] = $time;
+        $this->columns[] = "$t.time > ?";
+        $this->values[] = $time;
         if (!$this->options['order']) {
             $this->options['order'] = "$t.time ASC";
         } else {
