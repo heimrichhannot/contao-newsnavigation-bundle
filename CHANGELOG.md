@@ -1,9 +1,11 @@
 # Changelog
 
-## [1.0-dev] - 2017-10-10
+## [2.0] - 2017-12-05
 
 ### Changed
-* updated documentation
+* refactored `NewsModel` to expandable `NewsFilter` class (NewsModel removed)
+* added option to respect news archive to news module
+
 
 ## [1.0.0] - 2017-10-10
 

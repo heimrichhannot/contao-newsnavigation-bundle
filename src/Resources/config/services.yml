@@ -1,0 +1,3 @@
+services:
+  huh.newsnavigation.newsfilter:
+    class: HeimrichHannot\NewsNavigationBundle\NewsFilter\NewsFilter
