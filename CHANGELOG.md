@@ -4,7 +4,7 @@
 
 ### Changed
 * refactored `NewsModel` to expandable `NewsFilter` class (NewsModel removed)
-* added option to respect news archive to news module
+* added option to respect news archive in NewsReaderModule
 * added codestyle settings (phpcs) and initial unittests
 
 
