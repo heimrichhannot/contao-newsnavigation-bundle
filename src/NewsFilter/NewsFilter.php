@@ -16,16 +16,22 @@ class NewsFilter
      * @var NewsModel
      */
     private $model;
+    private $table;
     private $columns = [];
     private $values = [];
     private $options = [];
 
     /**
      * NewsArticle constructor.
+     *
+     * @param NewsModel|null $model
      */
-    public function __construct()
+    public function __construct($model = null)
     {
-        $this->setModel(new NewsModel());
+        if (null === $model) {
+            $model = new NewsModel();
+        }
+        $this->setModel($model);
     }
 
     /**
@@ -52,17 +58,14 @@ class NewsFilter
     /**
      * Filter by a single archive.
      *
-     * @param int $pid
+     * @param array $pids
      *
      * @return $this
      */
-    public function filterByArchive($pid)
+    public function filterByPids(array $pids)
     {
         $t = $this->table;
-        if ($pid && is_numeric($pid)) {
-            $this->columns[] = 'pid = ?';
-            $this->values[] = $pid;
-        }
+        $this->columns[] = "$t.pid IN(".implode(',', array_map('intval', $pids)).')';
 
         return $this;
     }
@@ -136,26 +139,30 @@ class NewsFilter
      *
      * @return $this
      */
-    public function addFilter(string $column, string $value)
+    public function addFilter(string $column, string $value = '')
     {
         $this->columns[] = $column;
-        $this->values[] = $value;
+        if (!empty($value)) {
+            $this->values[] = $value;
+        }
 
         return $this;
     }
 
     /**
-     * Add additions options to the filter. If option is already set, it will be appended.
+     * Add additions options to the filter.
+     * Some options will be appended instead of overwritten by default ("order"),.
      *
      * @param string $key
      * @param string $value
-     * @param bool   $forceOverwrite if true, option will be overwritten, if already exist
+     * @param bool   $forceOverwrite if true, option will always be overwritten
      *
      * @return $this
      */
     public function setOption(string $key, string $value, bool $forceOverwrite = false)
     {
-        if (!$this->options[$key] || true === $forceOverwrite) {
+        $append = ['order'];
+        if (!$this->options[$key] || true === $forceOverwrite || !in_array($key, $append, true)) {
             $this->options[$key] = $value;
         } else {
             $this->options[$key] .= ", $value";

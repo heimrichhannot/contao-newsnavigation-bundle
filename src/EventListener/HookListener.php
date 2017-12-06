@@ -20,12 +20,12 @@ class HookListener
      * @param array            $article
      * @param ModuleNewsReader$module
      */
-    public function addNewsNavigationLinks($template, $article, $module)
+    public function addNewsNavigationLinks(FrontendTemplate $template, array $article, $module)
     {
         $filter = System::getContainer()->get('huh.newsnavigation.newsfilter');
         $filter->filterOnlyPublished();
         if ($module->newsnavigationRespectArchive) {
-            $filter->filterByArchive($article['pid']);
+            $filter->filterByPids($module->news_archives);
         }
 
         $olderArticle = $filter->createCopy()
