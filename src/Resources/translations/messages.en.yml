@@ -2,3 +2,8 @@ huh.newsnavigation:
   article:
     next: Previous article
     previous: Next article
+
+  tl_module:
+    newsnavigationRespectArchive:
+      0: Newsnavigation only in current archive
+      1: If set, newsnavigation will only navigate between articles in the archive of the current news article.
