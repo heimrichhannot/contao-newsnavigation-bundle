@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.0.2] - 2019-01-14
+
+#### Fixed
+* error with symfony 4 due non-public service
+
 ## [2.0.1] - 2018-01-10
 
 #### Fixed 
