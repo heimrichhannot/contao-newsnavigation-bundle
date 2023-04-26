@@ -17,7 +17,7 @@
         "issues":"https://github.com/heimrichhannot/contao-newsnavigation-bundle/issues"
     },
     "require": {
-        "php": "^7.0",
+        "php": "^7.0 | ^8.0",
         "contao/core-bundle": "^4.4.0"
     },
     "require-dev": {
