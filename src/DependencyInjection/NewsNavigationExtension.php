@@ -20,11 +20,11 @@ class NewsNavigationExtension extends Extension
      *
      * @throws \InvalidArgumentException When provided tag is not defined in this extension
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new YamlFileLoader(
-            $container, new FileLocator(__DIR__.'/../Resources/config')
+            $container, new FileLocator(__DIR__.'/../../config')
         );
-        $loader->load('services.yml');
+        $loader->load('services.yaml');
     }
 }

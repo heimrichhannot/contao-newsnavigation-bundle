@@ -25,7 +25,7 @@ class Plugin implements BundlePluginInterface
      *
      * @return ConfigInterface[]
      */
-    public function getBundles(ParserInterface $parser)
+    public function getBundles(ParserInterface $parser): array
     {
         return [
             BundleConfig::create(NewsNavigationBundle::class)

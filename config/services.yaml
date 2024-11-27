@@ -1,0 +1,8 @@
+services:
+  HeimrichHannot\NewsNavigationBundle\Filter\Finder:
+    autowire: true
+    autoconfigure: true
+  HeimrichHannot\NewsNavigationBundle\:
+    resource: '../src/{EventListener}/*'
+    autowire: true
+    autoconfigure: true

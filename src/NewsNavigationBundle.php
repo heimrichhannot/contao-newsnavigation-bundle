@@ -25,4 +25,11 @@ class NewsNavigationBundle extends Bundle
     {
         return new NewsNavigationExtension();
     }
+
+    public function getPath()
+    {
+        return \dirname(__DIR__);
+    }
+
+
 }

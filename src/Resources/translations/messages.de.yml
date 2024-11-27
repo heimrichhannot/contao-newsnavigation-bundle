@@ -1,9 +1,0 @@
-huh.newsnavigation:
-  article:
-    next: Nächster Artikel
-    previous: Vorheriger Artikel
-
-  tl_module:
-    newsnavigationRespectArchive:
-      0: Neugkeitennavigation nur im aktuellen Archiv
-      1: Wenn gesetzt, werden die Links zum nächsten und vorherigen Neuigkeitenartikel nur Neugkeiten aus dem Archiv des aktuell betrachteten Neuigkeitenartikels enthalten.
