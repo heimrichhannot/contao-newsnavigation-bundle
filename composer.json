@@ -4,12 +4,12 @@
     "keywords":["contao", "bundle"],
     "type": "contao-bundle",
     "homepage":"https://github.com/heimrichhannot/contao-newsnavigation-bundle",
-    "license":"LGPL-3.0+",
+    "license":"LGPL-3.0-or-later",
     "authors":[
         {
             "name":"Heimrich & Hannot",
             "email":"digitales@heimrich-hannot.de",
-            "homepage":"http://www.heimrich-hannot.de",
+            "homepage":"https://www.heimrich-hannot.de",
             "role":"Developer"
         }
     ],
@@ -17,14 +17,8 @@
         "issues":"https://github.com/heimrichhannot/contao-newsnavigation-bundle/issues"
     },
     "require": {
-        "php": "^7.0 | ^8.0",
-        "contao/core-bundle": "^4.4.0"
-    },
-    "require-dev": {
-        "contao/manager-plugin": "^2.0",
-        "friendsofphp/php-cs-fixer": "^2.2",
-        "phpunit/phpunit": "^6.0",
-        "satooshi/php-coveralls": "^1.0"
+        "php": "^7.0 || ^8.0",
+        "contao/core-bundle": "^4.4"
     },
     "autoload": {
         "psr-4": {
@@ -39,9 +33,6 @@
             "src/Resources/contao/languages/",
             "src/Resources/contao/templates/"
         ]
-    },
-    "config": {
-        "preferred-install": "dist"
     },
     "extra": {
         "contao-manager-plugin": "HeimrichHannot\\NewsNavigationBundle\\ContaoManager\\Plugin"

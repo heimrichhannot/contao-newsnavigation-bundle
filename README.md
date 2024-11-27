@@ -3,8 +3,6 @@
 [![](https://img.shields.io/packagist/v/heimrichhannot/contao-newsnavigation-bundle.svg)](https://packagist.org/packages/heimrichhannot/contao-newsnavigation-bundle)
 [![](https://img.shields.io/packagist/l/heimrichhannot/contao-newsnavigation-bundle.svg)](https://packagist.org/packages/heimrichhannot/contao-newsnavigation-bundle)
 [![](https://img.shields.io/packagist/dt/heimrichhannot/contao-newsnavigation-bundle.svg)](https://packagist.org/packages/heimrichhannot/contao-newsnavigation-bundle)
-[![](https://img.shields.io/travis/heimrichhannot/contao-newsnavigation-bundle/master.svg)](https://travis-ci.org/heimrichhannot/contao-newsnavigation-bundle)
-[![](https://img.shields.io/coveralls/heimrichhannot/contao-newsnavigation-bundle/master.svg)](https://coveralls.io/github/heimrichhannot/contao-newsnavigation-bundle)
 
 
 A [contao](https://contao.org/de/) bundle to provide a simple navigation between news articles. It add template variables to go from one news article to the next or the previous article. News article order is calculated by time property.
