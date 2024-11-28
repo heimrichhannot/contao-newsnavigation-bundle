@@ -10,7 +10,7 @@ class NewsNavigationFilterEvent extends Event
 {
     public function __construct(
         public readonly Filter $filter,
-        public readonly Model $model,
+        public readonly Model $moduleModel,
     ) {
     }
 }

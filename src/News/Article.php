@@ -13,7 +13,7 @@ class Article implements \Stringable
 
     public function __construct(
         private readonly \Closure $evaluator,
-        private readonly TranslatableMessage $message,
+        private readonly string|TranslatableMessage $message,
     ) {
     }
 
@@ -34,20 +34,26 @@ class Article implements \Stringable
         return Template::once(fn() => News::generateNewsUrl($this->model(), $absolute))();
     }
 
-    public function label(): TranslatableMessage
+    public function label(): TranslatableMessage|string
     {
         if (!$this->model()) {
-            return new TranslatableMessage('');
+            return '';
         }
         return $this->message;
     }
 
-    private function id(): int
+    public function __get(string $name)
     {
         if (!$this->model()) {
-            return 0;
+            return null;
         }
-        return $this->model()->id;
+
+        return match ($name) {
+            'model' => $this->model(),
+            'url' => $this->url(),
+            'label' => $this->label(),
+            default => $this->model()->$name,
+        };
     }
 
     public function __toString(): string
@@ -55,6 +61,6 @@ class Article implements \Stringable
         if (!$this->model()) {
             return '';
         }
-        return (string) $this->id();
+        return (string) $this->model()->id;
     }
 }
