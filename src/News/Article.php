@@ -56,6 +56,18 @@ class Article implements \Stringable
         };
     }
 
+    public function __isset(string $name): bool
+    {
+        if (!$this->model()) {
+            return false;
+        }
+
+        return match ($name) {
+            'model', 'url', 'label' => true,
+            default => $this->model()->$name !== null,
+        };
+    }
+
     public function __toString(): string
     {
         if (!$this->model()) {

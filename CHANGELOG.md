@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.0.1] - 2024-11-28
+- Fixed: fetching model properties issues in twig
+
 ## [3.0.0] - 2024-11-28
 This release is a major overhaul of this bundle and has breaking changes. Please read the following changes carefully.
 

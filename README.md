@@ -9,6 +9,8 @@
 A [contao](https://contao.org/de/) extension to provide a simple navigation between news articles. It add template variables to go from one news article to the next or the previous article. 
 News article order is calculated by time property.
 
+![screenshot.png](docs/screenshot.png)
+
 ## Features
 
 * add Template variables to NewsReaderModule to jump between news articles
