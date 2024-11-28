@@ -28,6 +28,7 @@ composer require heimrichhannot/contao-newsnavigation-bundle
 
 The bundle provides two new variables for news reader templates: `nextArticle` and `previousArticle`.
 
+Twig example:
 ```twig
 {% if previousArticle|default %}
     <a href="{{ previousArticle.url }}" class="previous">
@@ -42,6 +43,7 @@ The bundle provides two new variables for news reader templates: `nextArticle` a
 {% endif %}
 ```
 
+HTML5 example:
 ```php
 <?php if ($this->previousArticle): ?>
     <a href="<?= $this->previousArticle->url ?>" title="<?= $this->previousArticle->title ?>"><?= $this->previousArticle->label ?></a>
