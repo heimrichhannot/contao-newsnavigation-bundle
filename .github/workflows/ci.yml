@@ -52,4 +52,4 @@ jobs:
         run: composer install --no-plugins --no-interaction
 
       - name: Rector
-        run: vendor/bin/rector
+        run: vendor/bin/rector --dry-run
