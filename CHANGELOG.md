@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.0.0] - 2024-11-28
+This release is a major overhaul of this bundle and has breaking changes. Please read the following changes carefully.
+
+- Added: `NewsNavigationFilterEvent` that replaces the old filter service
+- Changed: last and next article template properties now lazy loading
+- Changed: last and next article variable only added to news reader module.
+
+
 ## [2.0.2] - 2019-01-14
 
 #### Fixed

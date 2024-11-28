@@ -1,0 +1,55 @@
+name: CI
+
+on: [ push ]
+
+jobs:
+  phpstan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install the dependencies
+        run: composer install --no-plugins --no-interaction
+
+      - name: PHPStan
+        run: vendor/bin/phpstan analyse -c phpstan.neon
+
+  ecs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install the dependencies
+        run: composer install --no-plugins --no-interaction
+
+      - name: ECS
+        run: vendor/bin/ecs
+
+  rector:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install the dependencies
+        run: composer install --no-plugins --no-interaction
+
+      - name: Rector
+        run: vendor/bin/rector
