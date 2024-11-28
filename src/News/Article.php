@@ -7,7 +7,7 @@ use Contao\NewsModel;
 use Contao\Template;
 use Symfony\Component\Translation\TranslatableMessage;
 
-class Article
+class Article implements \Stringable
 {
     private mixed $model;
 
