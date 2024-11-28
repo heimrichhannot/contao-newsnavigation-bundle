@@ -14,7 +14,7 @@ class Article implements \Stringable
     public function __construct(
         private readonly \Closure $evaluator,
         private readonly TranslatableMessage $message,
-    ){
+    ) {
     }
 
     public function model(): NewsModel
@@ -43,6 +43,6 @@ class Article implements \Stringable
 
     public function __toString(): string
     {
-        return (string)$this->id();
+        return (string) $this->id();
     }
 }
