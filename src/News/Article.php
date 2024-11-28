@@ -43,6 +43,6 @@ class Article implements \Stringable
 
     public function __toString(): string
     {
-        return (string)$this->model()->id;
+        return (string)$this->id();
     }
 }
