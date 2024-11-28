@@ -24,6 +24,8 @@ composer require heimrichhannot/contao-newsnavigation-bundle
 
 ## Usage
 
+
+
 ### Template variables
 
 To use this extension, you need to output the template variables in your custom news template.

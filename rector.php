@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Contao\Rector\Set\ContaoLevelSetList;
 use Contao\Rector\Set\ContaoSetList;
 use Rector\Config\RectorConfig;
+use Rector\Php74\Rector\Property\RestoreDefaultNullToNullableTypePropertyRector;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
 use Rector\Symfony\Set\SymfonySetList;
@@ -28,4 +29,10 @@ return RectorConfig::configure()
         ContaoSetList::FQCN,
         ContaoLevelSetList::UP_TO_CONTAO_413,
         ContaoSetList::ANNOTATIONS_TO_ATTRIBUTES,
-    ]);
+    ])
+    ->withSkip([
+        RestoreDefaultNullToNullableTypePropertyRector::class => [
+            __DIR__ . '/src/News/Article.php',
+        ],
+    ])
+    ;
