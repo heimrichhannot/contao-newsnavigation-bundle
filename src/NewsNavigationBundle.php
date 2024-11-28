@@ -21,12 +21,12 @@ class NewsNavigationBundle extends Bundle
      *
      * @return ExtensionInterface|null The container extension
      */
-    public function getContainerExtension()
+    public function getContainerExtension(): ExtensionInterface|null
     {
         return new NewsNavigationExtension();
     }
 
-    public function getPath()
+    public function getPath(): string
     {
         return \dirname(__DIR__);
     }
