@@ -26,17 +26,6 @@ class Finder
 
     private function find(Filter $filter, callable $positionCallback): ?Model
     {
-        /** @var class-string<Model> $modelClass */
-        $modelClass = Model::getClassFromTable($filter->table);
-        if (null === $modelClass) {
-            return null;
-        }
-
-        $model = $filter->model;
-        if (null === $model) {
-            return null;
-        }
-
         $columns = [];
         $values = [];
         $options = [];
@@ -44,7 +33,7 @@ class Finder
         $this->applyPublishedFilter($filter, $columns);
         $this->applyPidFilter($filter, $columns);
 
-        $positionCallback($model, $columns, $values, $options);
+        $positionCallback($filter->model, $columns, $values, $options);
 
         $this->applyCustomFilter($filter, $columns, $values, $options);
 
