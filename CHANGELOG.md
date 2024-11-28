@@ -4,9 +4,14 @@
 This release is a major overhaul of this bundle and has breaking changes. Please read the following changes carefully.
 
 - Added: `NewsNavigationFilterEvent` that replaces the old filter service
-- Changed: last and next article template properties now lazy loading
+- Changed: previousArticle and nextArticle properties now lazy loading
+- Changed: previousArticle and nextArticle properties are now objects with multiple properties
 - Changed: last and next article variable only added to news reader module.
+- Deprecated: previousArticleLabel and nextArticleLabel template properties
 
+### Upgrade notes 
+- If you used the `huh.newsnavigation.newsfilter` service, you need to update your code to use the new `NewsNavigationFilterEvent` event.
+- It is recommended to update the template variable according the docs
 
 ## [2.0.2] - 2019-01-14
 

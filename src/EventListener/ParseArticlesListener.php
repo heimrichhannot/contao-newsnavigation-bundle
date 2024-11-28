@@ -12,6 +12,8 @@ use Contao\Template;
 use HeimrichHannot\NewsNavigationBundle\Event\NewsNavigationFilterEvent;
 use HeimrichHannot\NewsNavigationBundle\Filter\Filter;
 use HeimrichHannot\NewsNavigationBundle\Filter\Finder;
+use HeimrichHannot\NewsNavigationBundle\News\Article;
+use Symfony\Component\Translation\TranslatableMessage;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -38,10 +40,30 @@ class ParseArticlesListener
 
         $this->eventDispatcher->dispatch(new NewsNavigationFilterEvent($filter, $module->getModel()));
 
-        $template->nextArticle = Template::once(fn() => $this->finder->findNextElement($filter)->id);
-        $template->previousArticle = Template::once(fn() => $this->finder->findPreviousElement($filter)->id);
+        $template->nextArticle = new Article(
+            Template::once(fn() => $this->finder->findNextElement($filter)),
+            new TranslatableMessage('huh.newsnavigation.article.next')
+        );
+        $template->previousArticle = new Article(
+            Template::once(fn() => $this->finder->findPreviousElement($filter)),
+            new TranslatableMessage('huh.newsnavigation.article.previous')
+        );
 
-        $template->nextArticleLabel = $this->translator->trans('huh.newsnavigation.article.next');
-        $template->previousArticleLabel = $this->translator->trans('huh.newsnavigation.article.previous');
+        $template->nextArticleLabel = Template::once(function() {
+            trigger_deprecation(
+                'heimrichhannot/contao-newsnavigation-bundle',
+                '3.0',
+                'Using the nextArticleLabel property is deprecated and will no longer be supported in version 4.0. Use the nextArticle.label property instead.'
+            );
+            return $this->translator->trans('huh.newsnavigation.article.next');
+        });
+        $template->previousArticleLabel = Template::once(function() {
+            trigger_deprecation(
+                'heimrichhannot/contao-newsnavigation-bundle',
+                '3.0',
+                'Using the previousArticleLabel property is deprecated and will no longer be supported in version 4.0. Use the previousArticle.label property instead.'
+            );
+            return $this->translator->trans('huh.newsnavigation.article.previous');
+        });
     }
 }

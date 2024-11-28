@@ -6,17 +6,13 @@
 ![](https://img.shields.io/badge/PHPStan-level%205-brightgreen.svg?style=flat)
 
 
-A [contao](https://contao.org/de/) bundle to provide a simple navigation between news articles. It add template variables to go from one news article to the next or the previous article. News article order is calculated by time property.
+A [contao](https://contao.org/de/) extension to provide a simple navigation between news articles. It add template variables to go from one news article to the next or the previous article. 
+News article order is calculated by time property.
 
 ## Features
 
 * add Template variables to NewsReaderModule to jump between news articles
-* option to respect news archives set in NewsReaderModule
-* add custom filters via service
-
-## Requirements
-
-* Contao 4.4 (could also work with earlier contao 4 versions)
+* customize article navigation with custom filters
 
 ## Installation
 
