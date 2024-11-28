@@ -25,6 +25,11 @@
         "symfony/http-kernel": "^5.4 || ^6.0 || ^7.0",
         "symfony/translation-contracts": "^1.0 || ^2.0 || ^3.0"
     },
+    "require-dev": {
+        "rector/rector": "^1.0",
+        "contao/contao-rector": "dev-main",
+        "symplify/easy-coding-standard": "^12.1"
+    },
     "autoload": {
         "psr-4": {
             "HeimrichHannot\\NewsNavigationBundle\\": "src/"
