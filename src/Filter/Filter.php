@@ -7,18 +7,24 @@ use Contao\Model;
 class Filter
 {
     public readonly string $table;
+
     public readonly int $id;
+
     private bool $onlyPublished = true;
+
     private bool $ignoreFePreview = false;
+
     private array $pids = [];
+
     private array $columns = [];
+
     private array $values = [];
+
     private array $options = [];
 
     public function __construct(
         public readonly Model $model
-    )
-    {
+    ) {
         $this->table = $model::getTable();
         $this->id = $model->id;
     }

@@ -21,18 +21,16 @@ class Plugin implements BundlePluginInterface
     /**
      * Gets a list of autoload configurations for this bundle.
      *
-     * @param ParserInterface $parser
-     *
      * @return ConfigInterface[]
      */
     public function getBundles(ParserInterface $parser): array
     {
         return [
             BundleConfig::create(NewsNavigationBundle::class)
-            ->setLoadAfter([
-                ContaoCoreBundle::class,
-                ContaoNewsBundle::class,
-            ]),
+                ->setLoadAfter([
+                    ContaoCoreBundle::class,
+                    ContaoNewsBundle::class,
+                ]),
         ];
     }
 }

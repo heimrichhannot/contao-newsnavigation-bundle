@@ -22,8 +22,7 @@ class ParseArticlesListener
         private readonly TranslatorInterface $translator,
         private readonly Finder $finder,
         private readonly EventDispatcherInterface $eventDispatcher,
-    )
-    {
+    ) {
     }
 
     public function __invoke(FrontendTemplate $template, array $article, Module $module): void

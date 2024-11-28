@@ -10,8 +10,7 @@ class Finder
 {
     public function __construct(
         private readonly TokenChecker $tokenChecker,
-    )
-    {
+    ) {
     }
 
     public function findPreviousElement(Filter $filter): ?Model
@@ -42,8 +41,7 @@ class Finder
 
     private function isPreviewMode(Filter $filter): bool
     {
-        if ($filter->isIgnoreFePreview())
-        {
+        if ($filter->isIgnoreFePreview()) {
             return false;
         }
 
@@ -64,7 +62,7 @@ class Finder
     private function applyPidFilter(Filter $filter, array &$columns): void
     {
         $t = $filter->table;
-        $columns[] = "$t.pid IN(".implode(',', array_map('intval', $filter->getPids())).')';
+        $columns[] = "$t.pid IN(" . implode(',', array_map('intval', $filter->getPids())) . ')';
     }
 
     private function applyCustomFilter(Filter $filter, array &$columns, array &$values, array &$options): void
