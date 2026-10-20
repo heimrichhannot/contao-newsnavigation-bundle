@@ -78,7 +78,7 @@ class Finder
         $time = $model->time;
         $columns[] = "$t.time < ?";
         $values[] = $time;
-        if (!$options['order']) {
+        if (empty($options['order'])) {
             $options['order'] = "$t.time DESC";
         } else {
             $options['order'] .= ", $t.time DESC";
@@ -91,7 +91,7 @@ class Finder
         $time = $model->time;
         $columns[] = "$t.time > ?";
         $values[] = $time;
-        if (!$options['order']) {
+        if (empty($options['order'])) {
             $options['order'] = "$t.time ASC";
         } else {
             $options['order'] .= ", $t.time ASC";
