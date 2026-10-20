@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.0.2] - 2026-10-20
+- Fixed: undefined `order` array key when finding the previous or next article without custom sorting.
+
 ## [3.0.1] - 2024-11-28
 - Fixed: fetching model properties issues in twig
 
